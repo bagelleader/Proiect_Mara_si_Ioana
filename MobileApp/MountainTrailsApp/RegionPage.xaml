@@ -14,7 +14,8 @@
             <Button Text="Salvează"
                     Clicked="OnSaveButtonClicked" />
 
-            <Button Text="Șterge"
+            <Button x:Name="deleteRegionBtn"
+                    Text="Șterge"
                     Grid.Column="1"
                     Clicked="OnDeleteButtonClicked" />
         </Grid>

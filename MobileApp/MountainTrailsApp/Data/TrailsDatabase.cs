@@ -17,6 +17,7 @@ namespace MountainTrailsApp.Data
             _database.CreateTableAsync<Trail>().Wait();
             _database.CreateTableAsync<TrailRegion>().Wait();
             _database.CreateTableAsync<HikeLog>().Wait();
+            _database.CreateTableAsync<User>().Wait();
         }
 
         public Task<List<Trail>> GetTrailsAsync()
@@ -86,6 +87,20 @@ namespace MountainTrailsApp.Data
         {
             return _database.DeleteAsync(log);
         }
+
+        public Task<User> GetUserByEmailAsync(string email)
+        {
+            return _database.Table<User>()
+                .Where(u => u.Email == email)
+                .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveUserAsync(User user)
+        {
+            if (user.Id != 0) return _database.UpdateAsync(user);
+            return _database.InsertAsync(user);
+        }
+
 
     }
 }

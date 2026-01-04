@@ -48,7 +48,8 @@
             <Button Text="Salvează"
                     Clicked="OnSaveButtonClicked" />
 
-            <Button Grid.Column="1"
+            <Button x:Name="deleteTrailBtn"
+                    Grid.Column="1"
                     Text="Șterge"
                     Clicked="OnDeleteButtonClicked" />
 

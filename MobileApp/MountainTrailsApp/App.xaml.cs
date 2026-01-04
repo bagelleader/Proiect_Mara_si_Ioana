@@ -1,12 +1,16 @@
-﻿using System;
+﻿using MountainTrailsApp.Data;
+using MountainTrailsApp.Models;
+using System;
 using System.IO;
-using MountainTrailsApp.Data;
+using MountainTrailsApp.Models;
+
 
 namespace MountainTrailsApp
 {
     public partial class App : Application
     {
         static TrailsDatabase database;
+        public static User CurrentUser { get; set; }
 
         public static TrailsDatabase Database
         {
@@ -28,7 +32,8 @@ namespace MountainTrailsApp
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LoginPage());
+
         }
     }
 }

@@ -29,6 +29,12 @@ public partial class TrailPage : ContentPage
 
     async void OnDeleteButtonClicked(object sender, EventArgs e)
     {
+        if (App.CurrentUser?.Role != "Admin")
+        {
+            await DisplayAlert("Acces interzis", "Doar Admin poate șterge trasee.", "OK");
+            return;
+        }
+
         var trail = (Trail)BindingContext;
 
         await App.Database.DeleteTrailAsync(trail);
@@ -38,6 +44,8 @@ public partial class TrailPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+
+        deleteTrailBtn.IsVisible = App.CurrentUser?.Role == "Admin";
 
         _regions = await App.Database.GetRegionsAsync();
         regionPicker.ItemsSource = _regions;

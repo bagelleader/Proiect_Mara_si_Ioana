@@ -7,19 +7,24 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MountainTrailsApp">
 
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Clicked="OnLogoutClicked"
+                     Priority="0"
+                     Order="Primary" />
+    </Shell.ToolbarItems>
+
     <TabBar>
-        <ShellContent
-            Title="Trasee"
-            ContentTemplate="{DataTemplate local:TrailsEntryPage}" />
+        <ShellContent Route="trasee"
+                  Title="Trasee"
+                  ContentTemplate="{DataTemplate local:TrailsEntryPage}" />
 
-        <ShellContent
-            Title="Despre"
-            ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="regiuni"
+                  Title="Regiuni"
+                  ContentTemplate="{DataTemplate local:RegionPage}" />
 
-        <ShellContent
-            Title="Regiuni"
-            ContentTemplate="{DataTemplate local:RegionPage}" />
-
+        <ShellContent Route="despre"
+                  Title="Despre"
+                  ContentTemplate="{DataTemplate local:AboutPage}" />
     </TabBar>
-
 </Shell>

@@ -1,4 +1,6 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+
 
 namespace MountainTrailsApp.Models
 {
@@ -16,7 +18,11 @@ namespace MountainTrailsApp.Models
 
         public double DistanceKm { get; set; }   
 
-        public string Region { get; set; }       
+        public string Region { get; set; }
+
+        [ForeignKey(typeof(Region))]
+        public int RegionID { get; set; }
+
 
         public string Description { get; set; }
     }

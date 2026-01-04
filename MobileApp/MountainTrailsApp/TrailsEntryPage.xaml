@@ -15,7 +15,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Name}"
-                          Detail="{Binding Difficulty}" />
+                          Detail="{Binding Region}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

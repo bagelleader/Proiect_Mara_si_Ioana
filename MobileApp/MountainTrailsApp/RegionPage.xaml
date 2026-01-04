@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MountainTrailsApp.RegionPage"
+             Title="Regiuni">
+
+    <StackLayout Margin="20">
+
+        <Editor Placeholder="Introduceți numele regiunii"
+                Text="{Binding Name}"
+                HeightRequest="50" />
+
+        <Grid ColumnDefinitions="*,*">
+            <Button Text="Salvează"
+                    Clicked="OnSaveButtonClicked" />
+
+            <Button Text="Șterge"
+                    Grid.Column="1"
+                    Clicked="OnDeleteButtonClicked" />
+        </Grid>
+
+        <ListView x:Name="regionsList"
+                  Margin="20"
+                  ItemSelected="OnRegionSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>

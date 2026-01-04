@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MountainTrailsApp.Models;
+using TrailRegion = MountainTrailsApp.Models.Region;
+
 
 namespace MountainTrailsApp.Data
 {
@@ -13,6 +15,8 @@ namespace MountainTrailsApp.Data
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Trail>().Wait();
+            _database.CreateTableAsync<TrailRegion>().Wait();
+
         }
 
         public Task<List<Trail>> GetTrailsAsync()
@@ -42,6 +46,24 @@ namespace MountainTrailsApp.Data
         public Task<int> DeleteTrailAsync(Trail trail)
         {
             return _database.DeleteAsync(trail);
+        }
+
+        public Task<List<TrailRegion>> GetRegionsAsync()
+        {
+            return _database.Table<TrailRegion>().ToListAsync();
+        }
+
+        public Task<int> SaveRegionAsync(TrailRegion region)
+        {
+            if (region.ID != 0)
+                return _database.UpdateAsync(region);
+            else
+                return _database.InsertAsync(region);
+        }
+
+        public Task<int> DeleteRegionAsync(TrailRegion region)
+        {
+            return _database.DeleteAsync(region);
         }
     }
 }

@@ -9,6 +9,10 @@
         <Entry Placeholder="Numele traseului"
                Text="{Binding Name}" />
 
+        <Picker x:Name="regionPicker"
+                Title="Alege regiunea"
+                ItemDisplayBinding="{Binding Name}" />
+
         <Entry Placeholder="Dificultate (Ușor/Mediu/Greu)"
                Text="{Binding Difficulty}" />
 
@@ -19,9 +23,6 @@
         <Entry Placeholder="Distanță (km)"
                Keyboard="Numeric"
                Text="{Binding DistanceKm}" />
-
-        <Entry Placeholder="Zonă / masiv montan"
-               Text="{Binding Region}" />
 
         <Editor Placeholder="Descriere traseu"
                 HeightRequest="100"

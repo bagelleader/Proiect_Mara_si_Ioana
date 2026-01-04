@@ -15,6 +15,11 @@
         <ShellContent
             Title="Despre"
             ContentTemplate="{DataTemplate local:AboutPage}" />
+
+        <ShellContent
+            Title="Regiuni"
+            ContentTemplate="{DataTemplate local:RegionPage}" />
+
     </TabBar>
 
 </Shell>

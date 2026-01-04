@@ -10,7 +10,7 @@
     <TabBar>
         <ShellContent
             Title="Trasee"
-            ContentTemplate="{DataTemplate local:MainPage}" />
+            ContentTemplate="{DataTemplate local:TrailsEntryPage}" />
 
         <ShellContent
             Title="Despre"

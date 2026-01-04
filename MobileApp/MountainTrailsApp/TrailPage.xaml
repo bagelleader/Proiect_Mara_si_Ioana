@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MountainTrailsApp.TrailPage"
+             Title="Detalii traseu">
+
+    <StackLayout Margin="20" Spacing="10">
+
+        <Entry Placeholder="Numele traseului"
+               Text="{Binding Name}" />
+
+        <Entry Placeholder="Dificultate (Ușor/Mediu/Greu)"
+               Text="{Binding Difficulty}" />
+
+        <Entry Placeholder="Durată (ore)"
+               Keyboard="Numeric"
+               Text="{Binding DurationHours}" />
+
+        <Entry Placeholder="Distanță (km)"
+               Keyboard="Numeric"
+               Text="{Binding DistanceKm}" />
+
+        <Entry Placeholder="Zonă / masiv montan"
+               Text="{Binding Region}" />
+
+        <Editor Placeholder="Descriere traseu"
+                HeightRequest="100"
+                Text="{Binding Description}" />
+
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Salvează"
+                    Clicked="OnSaveButtonClicked" />
+
+            <Button Grid.Column="1"
+                    Text="Șterge"
+                    Clicked="OnDeleteButtonClicked" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

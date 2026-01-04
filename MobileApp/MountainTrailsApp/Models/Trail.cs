@@ -25,5 +25,8 @@ namespace MountainTrailsApp.Models
 
 
         public string Description { get; set; }
+
+        public bool IsFavorite { get; set; }
+
     }
 }

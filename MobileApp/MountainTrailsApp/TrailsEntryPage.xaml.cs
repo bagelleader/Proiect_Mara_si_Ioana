@@ -1,10 +1,15 @@
 using MountainTrailsApp.Models;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace MountainTrailsApp;
 
 public partial class TrailsEntryPage : ContentPage
 {
-	public TrailsEntryPage()
+    private bool _showFavoritesOnly = false;
+
+    public TrailsEntryPage()
 	{
 		InitializeComponent();
 	}
@@ -12,8 +17,21 @@ public partial class TrailsEntryPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        trailsListView.ItemsSource = await App.Database.GetTrailsAsync();
+        await LoadTrailsAsync();
     }
+
+    private async Task LoadTrailsAsync()
+    {
+        var trails = await App.Database.GetTrailsAsync();
+
+        if (_showFavoritesOnly)
+        {
+            trails = trails.Where(t => t.IsFavorite).ToList();
+        }
+
+        trailsListView.ItemsSource = trails;
+    }
+
 
     async void OnAddTrailClicked(object sender, EventArgs e)
     {
@@ -33,4 +51,17 @@ public partial class TrailsEntryPage : ContentPage
             });
         }
     }
+
+    async void OnToggleFavoritesClicked(object sender, EventArgs e)
+    {
+        _showFavoritesOnly = !_showFavoritesOnly;
+
+        await LoadTrailsAsync();
+
+        if (sender is ToolbarItem item)
+        {
+            item.Text = _showFavoritesOnly ? "Toate traseele" : "Doar favorite";
+        }
+    }
+
 }

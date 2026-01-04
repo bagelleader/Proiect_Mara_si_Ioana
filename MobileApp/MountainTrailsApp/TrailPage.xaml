@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MountainTrailsApp"
              x:Class="MountainTrailsApp.TrailPage"
              Title="Detalii traseu">
 
@@ -24,9 +25,19 @@
                Keyboard="Numeric"
                Text="{Binding DistanceKm}" />
 
+        <HorizontalStackLayout Spacing="10">
+            <CheckBox IsChecked="{Binding IsFavorite}" />
+            <Label Text="Marchează traseul ca favorit" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
         <Editor Placeholder="Descriere traseu"
-                HeightRequest="100"
-                Text="{Binding Description}" />
+        HeightRequest="100"
+        Text="{Binding Description}">
+            <Editor.Behaviors>
+                <local:ValidationBehaviour />
+            </Editor.Behaviors>
+        </Editor>
+
 
         <Grid ColumnSpacing="10">
             <Grid.ColumnDefinitions>

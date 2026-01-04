@@ -51,6 +51,10 @@
             <Button Grid.Column="1"
                     Text="Șterge"
                     Clicked="OnDeleteButtonClicked" />
+
+            <Button Text="Deschide jurnalul pentru acest traseu"
+                    Clicked="OnOpenJournalClicked" />
+
         </Grid>
 
     </StackLayout>

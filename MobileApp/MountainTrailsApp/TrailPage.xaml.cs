@@ -1,4 +1,4 @@
-using MountainTrailsApp.Models;
+﻿using MountainTrailsApp.Models;
 using System.Linq;
 using TrailRegion = MountainTrailsApp.Models.Region;
 
@@ -51,5 +51,21 @@ public partial class TrailPage : ContentPage
             }
         }
     }
+
+    async void OnOpenJournalClicked(object sender, EventArgs e)
+    {
+        var trail = (Trail)BindingContext;
+
+        if (trail.Id == 0)
+        {
+            await DisplayAlert("Atenție",
+                "Salvează mai întâi traseul înainte de a deschide jurnalul.",
+                "OK");
+            return;
+        }
+
+        await Navigation.PushAsync(new HikeLogPage(trail));
+    }
+
 
 }

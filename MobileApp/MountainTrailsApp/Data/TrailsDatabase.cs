@@ -16,7 +16,7 @@ namespace MountainTrailsApp.Data
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Trail>().Wait();
             _database.CreateTableAsync<TrailRegion>().Wait();
-
+            _database.CreateTableAsync<HikeLog>().Wait();
         }
 
         public Task<List<Trail>> GetTrailsAsync()
@@ -65,5 +65,27 @@ namespace MountainTrailsApp.Data
         {
             return _database.DeleteAsync(region);
         }
+
+        public Task<List<HikeLog>> GetHikeLogsForTrailAsync(int trailId)
+        {
+            return _database.Table<HikeLog>()
+                            .Where(h => h.TrailId == trailId)
+                            .OrderByDescending(h => h.Date)
+                            .ToListAsync();
+        }
+
+        public Task<int> SaveHikeLogAsync(HikeLog log)
+        {
+            if (log.Id != 0)
+                return _database.UpdateAsync(log);
+            else
+                return _database.InsertAsync(log);
+        }
+
+        public Task<int> DeleteHikeLogAsync(HikeLog log)
+        {
+            return _database.DeleteAsync(log);
+        }
+
     }
 }

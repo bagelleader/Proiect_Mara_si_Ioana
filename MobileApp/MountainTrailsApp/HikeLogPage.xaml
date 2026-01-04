@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MountainTrailsApp.HikeLogPage"
+             Title="Jurnal drumeții">
+
+    <VerticalStackLayout Margin="20" Spacing="10">
+
+        <Label x:Name="trailNameLabel"
+               FontSize="20"
+               FontAttributes="Bold"
+               Text="Traseu" />
+
+        <DatePicker x:Name="datePicker"
+                    Format="dd.MM.yyyy" />
+
+        <Entry x:Name="durationEntry"
+               Placeholder="Durată (ore)"
+               Keyboard="Numeric" />
+
+        <Editor x:Name="notesEditor"
+                Placeholder="Impresii despre drumeție"
+                HeightRequest="100" />
+
+        <Button Text="Salvează în jurnal"
+                Clicked="OnSaveLogClicked" />
+
+        <Label Text="Înregistrări anterioare"
+               FontAttributes="Bold"
+               Margin="0,20,0,0" />
+
+        <ListView x:Name="logsListView"
+                  ItemSelected="OnLogSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy}'}"
+                              Detail="{Binding DurationHours, StringFormat='Durată: {0} ore'}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

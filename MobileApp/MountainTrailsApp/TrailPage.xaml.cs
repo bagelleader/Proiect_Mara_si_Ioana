@@ -75,5 +75,18 @@ public partial class TrailPage : ContentPage
         await Navigation.PushAsync(new HikeLogPage(trail));
     }
 
+    async void OnOpenPointsClicked(object sender, EventArgs e)
+    {
+        var trail = (Trail)BindingContext;
+
+        if (trail.Id == 0)
+        {
+            await DisplayAlert("Atenție", "Salvează mai întâi traseul.", "OK");
+            return;
+        }
+
+        await Navigation.PushAsync(new PointsPage(trail));
+    }
+
 
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MountainTrailsApp.PointPage"
+             Title="Punct de interes">
+
+    <VerticalStackLayout Margin="20" Spacing="10">
+        <Entry Placeholder="Nume (ex: Izvor, Belvedere)"
+               Text="{Binding Name}" />
+
+        <Entry Placeholder="Tip (ex: Izvor, Cabana, Pericol)"
+               Text="{Binding Type}" />
+
+        <Editor Placeholder="Notițe / detalii"
+                HeightRequest="100"
+                Text="{Binding Notes}" />
+
+        <Grid ColumnDefinitions="*,*">
+            <Button Text="Salvează" Clicked="OnSaveClicked" />
+            <Button Grid.Column="1" Text="Șterge" Clicked="OnDeleteClicked" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

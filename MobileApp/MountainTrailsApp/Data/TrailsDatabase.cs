@@ -18,6 +18,7 @@ namespace MountainTrailsApp.Data
             _database.CreateTableAsync<TrailRegion>().Wait();
             _database.CreateTableAsync<HikeLog>().Wait();
             _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<PointOfInterest>().Wait();
         }
 
         public Task<List<Trail>> GetTrailsAsync()
@@ -100,6 +101,27 @@ namespace MountainTrailsApp.Data
             if (user.Id != 0) return _database.UpdateAsync(user);
             return _database.InsertAsync(user);
         }
+
+        public Task<List<PointOfInterest>> GetPointsForTrailAsync(int trailId)
+        {
+            return _database.Table<PointOfInterest>()
+                .Where(p => p.TrailId == trailId)
+                .ToListAsync();
+        }
+
+        public Task<int> SavePointAsync(PointOfInterest point)
+        {
+            if (point.Id != 0)
+                return _database.UpdateAsync(point);
+            else
+                return _database.InsertAsync(point);
+        }
+
+        public Task<int> DeletePointAsync(PointOfInterest point)
+        {
+            return _database.DeleteAsync(point);
+        }
+
 
 
     }

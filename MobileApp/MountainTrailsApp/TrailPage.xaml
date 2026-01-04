@@ -4,8 +4,9 @@
              xmlns:local="clr-namespace:MountainTrailsApp"
              x:Class="MountainTrailsApp.TrailPage"
              Title="Detalii traseu">
-
-    <StackLayout Margin="20" Spacing="10">
+    
+    <ScrollView>
+        <StackLayout Margin="20" Spacing="10">
 
         <Entry Placeholder="Numele traseului"
                Text="{Binding Name}" />
@@ -39,24 +40,29 @@
         </Editor>
 
 
-        <Grid ColumnSpacing="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Button Text="Salvează"
-                    Clicked="OnSaveButtonClicked" />
+                <Button Text="Salvează"
+            Clicked="OnSaveButtonClicked" />
 
-            <Button x:Name="deleteTrailBtn"
-                    Grid.Column="1"
-                    Text="Șterge"
-                    Clicked="OnDeleteButtonClicked" />
+                <Button x:Name="deleteTrailBtn"
+            Grid.Column="1"
+            Text="Șterge"
+            Clicked="OnDeleteButtonClicked" />
+            </Grid>
 
             <Button Text="Deschide jurnalul pentru acest traseu"
-                    Clicked="OnOpenJournalClicked" />
+        Clicked="OnOpenJournalClicked" />
 
-        </Grid>
+            <Button Text="Puncte de interes pentru acest traseu"
+        Clicked="OnOpenPointsClicked" />
 
-    </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+    
 </ContentPage>

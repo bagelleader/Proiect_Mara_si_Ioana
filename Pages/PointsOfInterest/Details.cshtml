@@ -1,0 +1,17 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.PointsOfInterest.DetailsModel
+
+<h1>Point of Interest Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">@Model.Point.Name</dd>
+
+    <dt class="col-sm-3">Type</dt>
+    <dd class="col-sm-9">@Model.Point.Type</dd>
+</dl>
+
+<p>
+    <a asp-page="Edit" asp-route-id="@Model.Point.PointOfInterestId">Edit</a> |
+    <a asp-page="Index">Back</a>
+</p>

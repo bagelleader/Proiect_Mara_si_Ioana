@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.PointsOfInterest.EditModel
+
+<h1>Edit Point of Interest</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Point.PointOfInterestId" />
+
+    <div class="form-group">
+        <label asp-for="Point.Name"></label>
+        <input asp-for="Point.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Point.Type"></label>
+        <input asp-for="Point.Type" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Back</a>
+</form>

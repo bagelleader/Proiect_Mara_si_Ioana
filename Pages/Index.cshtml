@@ -1,10 +1,51 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@model MuntiRomania.Pages.IndexModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-7">
+            <h1 class="display-4 mb-3">Munti din Romania</h1>
+
+            <p class="lead">
+                Din pasiune pentru munte: descopera frumusetea peisajelor montane
+                din romania, toate organizate intr-un singur loc!
+            </p>
+
+            <p>
+                Aventura te asteapta in afara casei. Exploreaza Romania acum!
+            </p>
+
+            <div class="mt-4">
+                <a asp-page="/Trails/Index" class="btn btn-success btn-lg me-2">
+                    Explore Trails
+                </a>
+                <a asp-page="/MountainRanges/Index" class="btn btn-outline-primary btn-lg">
+                    Mountain Ranges
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-5 text-center">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+                 class="img-fluid rounded shadow"
+                 alt="Mountains">
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h3>🌍 Regions</h3>
+            <p>Organizează traseele pe regiuni geografice.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>⛰ Mountain Ranges</h3>
+            <p>Explorează lanțurile muntoase ale României.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>🥾 Trails</h3>
+            <p>Alege trasee în funcție de dificultate și durată.</p>
+        </div>
+    </div>
 </div>

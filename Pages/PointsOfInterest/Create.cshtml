@@ -1,0 +1,20 @@
+﻿@page
+@model MuntiRomania.Pages.PointsOfInterest.CreateModel
+
+<h1>Create Point of Interest</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Point.Name"></label>
+        <input asp-for="Point.Name" class="form-control" />
+        <span asp-validation-for="Point.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Point.Type"></label>
+        <input asp-for="Point.Type" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Back</a>
+</form>

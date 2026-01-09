@@ -1,0 +1,38 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.Trails.EditModel
+
+<h1>Edit Trail</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Trail.TrailId" />
+
+    <div class="form-group">
+        <label asp-for="Trail.Name"></label>
+        <input asp-for="Trail.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trail.Difficulty"></label>
+        <input asp-for="Trail.Difficulty" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trail.LengthKm"></label>
+        <input asp-for="Trail.LengthKm" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trail.DurationHours"></label>
+        <input asp-for="Trail.DurationHours" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trail.MountainRangeId"></label>
+        <select asp-for="Trail.MountainRangeId"
+                asp-items="Model.MountainRangeList"
+                class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Back</a>
+</form>

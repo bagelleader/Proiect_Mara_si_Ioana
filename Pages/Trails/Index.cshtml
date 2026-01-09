@@ -1,0 +1,45 @@
+﻿@page
+@model MuntiRomania.Pages.Trails.IndexModel
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="h3 mb-0">Trails</h1>
+                <a asp-page="Create" class="btn btn-success">+ Add Trail</a>
+            </div>
+
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Difficulty</th>
+                        <th>Length (km)</th>
+                        <th>Duration (h)</th>
+                        <th>Mountain Range</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Trails)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Difficulty</td>
+                            <td>@item.LengthKm</td>
+                            <td>@item.DurationHours</td>
+                            <td>@item.MountainRange?.Name</td>
+                            <td class="text-end">
+                                <a asp-page="Edit" asp-route-id="@item.TrailId" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a asp-page="Details" asp-route-id="@item.TrailId" class="btn btn-sm btn-outline-secondary">Details</a>
+                                <a asp-page="Delete" asp-route-id="@item.TrailId" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.PointsOfInterest.DeleteModel
+
+<h1>Delete Point of Interest</h1>
+
+<p>Are you sure you want to delete <strong>@Model.Point.Name</strong>?</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Point.PointOfInterestId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

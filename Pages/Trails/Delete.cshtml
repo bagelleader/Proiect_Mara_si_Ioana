@@ -1,0 +1,14 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.Trails.DeleteModel
+
+<h1>Delete Trail</h1>
+
+<h4>Are you sure?</h4>
+
+<p><strong>@Model.Trail.Name</strong></p>
+
+<form method="post">
+    <input type="hidden" asp-for="Trail.TrailId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

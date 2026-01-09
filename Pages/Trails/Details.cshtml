@@ -1,0 +1,26 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.Trails.DetailsModel
+
+<h1>Trail Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">@Model.Trail.Name</dd>
+
+    <dt class="col-sm-3">Difficulty</dt>
+    <dd class="col-sm-9">@Model.Trail.Difficulty</dd>
+
+    <dt class="col-sm-3">Length (km)</dt>
+    <dd class="col-sm-9">@Model.Trail.LengthKm</dd>
+
+    <dt class="col-sm-3">Duration (h)</dt>
+    <dd class="col-sm-9">@Model.Trail.DurationHours</dd>
+
+    <dt class="col-sm-3">Mountain Range</dt>
+    <dd class="col-sm-9">@Model.Trail.MountainRange?.Name</dd>
+</dl>
+
+<p>
+    <a asp-page="Edit" asp-route-id="@Model.Trail.TrailId">Edit</a> |
+    <a asp-page="Index">Back</a>
+</p>

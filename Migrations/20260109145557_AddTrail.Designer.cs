@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MuntiRomania.Data;
 
@@ -11,9 +12,11 @@ using MuntiRomania.Data;
 namespace MuntiRomania.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260109145557_AddTrail")]
+    partial class AddTrail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -243,27 +246,6 @@ namespace MuntiRomania.Migrations
                     b.ToTable("MountainRanges");
                 });
 
-            modelBuilder.Entity("MuntiRomania.Models.PointOfInterest", b =>
-                {
-                    b.Property<int>("PointOfInterestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PointOfInterestId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PointOfInterestId");
-
-                    b.ToTable("PointsOfInterest");
-                });
-
             modelBuilder.Entity("MuntiRomania.Models.Region", b =>
                 {
                     b.Property<int>("RegionId")
@@ -317,21 +299,6 @@ namespace MuntiRomania.Migrations
                     b.HasIndex("MountainRangeId");
 
                     b.ToTable("Trails");
-                });
-
-            modelBuilder.Entity("MuntiRomania.Models.TrailPoint", b =>
-                {
-                    b.Property<int>("TrailId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PointOfInterestId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TrailId", "PointOfInterestId");
-
-                    b.HasIndex("PointOfInterestId");
-
-                    b.ToTable("TrailPoints");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -405,35 +372,6 @@ namespace MuntiRomania.Migrations
                         .IsRequired();
 
                     b.Navigation("MountainRange");
-                });
-
-            modelBuilder.Entity("MuntiRomania.Models.TrailPoint", b =>
-                {
-                    b.HasOne("MuntiRomania.Models.PointOfInterest", "PointOfInterest")
-                        .WithMany("TrailPoints")
-                        .HasForeignKey("PointOfInterestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MuntiRomania.Models.Trail", "Trail")
-                        .WithMany("TrailPoints")
-                        .HasForeignKey("TrailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PointOfInterest");
-
-                    b.Navigation("Trail");
-                });
-
-            modelBuilder.Entity("MuntiRomania.Models.PointOfInterest", b =>
-                {
-                    b.Navigation("TrailPoints");
-                });
-
-            modelBuilder.Entity("MuntiRomania.Models.Trail", b =>
-                {
-                    b.Navigation("TrailPoints");
                 });
 #pragma warning restore 612, 618
         }

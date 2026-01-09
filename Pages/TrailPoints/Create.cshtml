@@ -1,0 +1,23 @@
+﻿@page
+@model MuntiRomania.Pages.TrailPoints.CreateModel
+
+<h1>Add Point of Interest to Trail</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="TrailPoint.TrailId">Trail</label>
+        <select asp-for="TrailPoint.TrailId"
+                asp-items="Model.TrailList"
+                class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TrailPoint.PointOfInterestId">Point of Interest</label>
+        <select asp-for="TrailPoint.PointOfInterestId"
+                asp-items="Model.PointList"
+                class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a asp-page="/Index" class="btn btn-secondary">Back</a>
+</form>

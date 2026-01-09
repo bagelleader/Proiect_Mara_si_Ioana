@@ -1,0 +1,20 @@
+﻿@page
+@model MuntiRomania.Pages.MountainRanges.CreateModel
+
+<h1>Create Mountain Range</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="MountainRange.Name"></label>
+        <input asp-for="MountainRange.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MountainRange.RegionId"></label>
+        <select asp-for="MountainRange.RegionId"
+                asp-items="Model.RegionList"
+                class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

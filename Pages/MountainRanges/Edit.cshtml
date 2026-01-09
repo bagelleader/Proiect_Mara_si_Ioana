@@ -1,0 +1,24 @@
+﻿@page "{id:int}"
+@model MuntiRomania.Pages.MountainRanges.EditModel
+
+<h1>Edit Mountain Range</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="MountainRange.MountainRangeId" />
+
+    <div class="form-group">
+        <label asp-for="MountainRange.Name"></label>
+        <input asp-for="MountainRange.Name" class="form-control" />
+        <span asp-validation-for="MountainRange.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MountainRange.RegionId"></label>
+        <select asp-for="MountainRange.RegionId"
+                asp-items="Model.RegionList"
+                class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Back</a>
+</form>

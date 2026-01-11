@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MuntiRomania.Data;
 using MuntiRomania.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MuntiRomania.Pages.Trails;
 
+[Authorize]
 public class EditModel : PageModel
 {
     private readonly ApplicationDbContext _context;

@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MuntiRomania.Data;
 using MuntiRomania.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MuntiRomania.Pages.PointsOfInterest;
 
+[Authorize]
 public class CreateModel : PageModel
 {
     private readonly ApplicationDbContext _context;

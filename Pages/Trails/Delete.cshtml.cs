@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MuntiRomania.Data;
 using MuntiRomania.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MuntiRomania.Pages.Trails;
 
+[Authorize]
 public class DeleteModel : PageModel
 {
     private readonly ApplicationDbContext _context;

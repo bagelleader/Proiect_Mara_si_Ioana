@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MuntiRomania.Data;
 using MuntiRomania.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MuntiRomania.Pages.Regions
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly MuntiRomania.Data.ApplicationDbContext _context;

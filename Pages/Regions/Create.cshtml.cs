@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MuntiRomania.Data;
 using MuntiRomania.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MuntiRomania.Pages.Regions
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly MuntiRomania.Data.ApplicationDbContext _context;
